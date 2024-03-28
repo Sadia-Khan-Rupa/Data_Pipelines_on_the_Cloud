@@ -3,7 +3,7 @@
 the project is described in the following medium article
 [Data Engineering Blog Post](https://medium.com/p/d98ede61ed12 "Data Engineering Blog Post")
 
-##CaseStudy: Gans
+## CaseStudy: Gans
 Gans is a startup developing an e-scooter-sharing system. It aspires to operate in the most populous cities all around the world. In each city, the company will have hundreds of e-scooters parked in the streets and allow users to rent them by the minute.
 
 
