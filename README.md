@@ -3,28 +3,120 @@
 the project is described in the following medium article
 [Data Engineering Blog Post](https://medium.com/p/d98ede61ed12 "Data Engineering Blog Post")
 
-## CaseStudy: Gans
-Gans is a startup developing an e-scooter-sharing system. It aspires to operate in the most populous cities all around the world. In each city, the company will have hundreds of e-scooters parked in the streets and allow users to rent them by the minute.
 
+# 🌦️ **Weather and Flight Data Integration**
 
+This project integrates data from weather and flight APIs, stores the data in a MySQL database, and provides functionality to retrieve and store the data using Google Cloud Functions.
 
-Some of Gans’ most notorious and well-established competitors are TIER, probably the biggest player in the German-speaking countries, now expanding throughout other European countries, and Bird, a cool Californian company, already established in Europe.
+---
 
-The focus of most e-scooter companies is sustainable mobility: they are on the good side of the dichotomy between Battery Electric Vehicles (BEV) versus Internal Combustion Engine Vehicles (ICEV). Most of their marketing efforts push the eco-friendly narrative: this is how they acquire new users and gain good press from citizens encountering scooters around the city.
+## 📋 **Table of Contents**  
+- [**About the Project**](#about-the-project)  
+- [**Features**](#features)  
+- [**Installation**](#installation)  
+- [**Usage**](#usage)  
+- [**Contributing**](#contributing)  
+- [**License**](#license)  
+- [**Contact**](#contact)  
+- [**Acknowledgments**](#acknowledgments)  
 
-However, Gans has seen that its operational success depends on something more mundane: having its scooters parked where users need them.
+---
 
-Ideally, scooters get rearranged organically by having certain users moving from point A to point B, and then an even number of users moving from point B to point A. However, some elements create asymmetries. Here are some of them:
+## 💡 **About the Project**  
 
-In hilly cities, users tend to use scooters to go uphill and then walk downhill.
-In the morning, there is a general movement from residential neighbourhoods towards the city centre.
-Whenever it starts raining, e-scooter usage decreases drastically.
-Young tourists travelling with cheap flights are a big potential group of users, but they need to find scooters downtown or nearby touristic landmarks.
-There are some actions that the company can perform to solve these asymmetries, namely:
+This project fetches weather and flight data from external APIs and stores it into a MySQL database. The project is implemented as a Google Cloud Function that inserts data from weather forecasts and flight details into the database at regular intervals.
 
-Use a truck to move scooters around.
-Create economic incentives for users to pick up or leave scooters in certain areas, as the image below shows.
+---
 
+## ✨ **Features**  
+- **Weather Data:** Retrieves forecasted weather information for various cities and stores it in a database.
+- **Flight Data:** Retrieves flight data based on airport ICAO codes and stores it in a MySQL database.
+- **Cloud Function:** The data is fetched and inserted into the database via Google Cloud Functions.
 
-Either way, the company wants to anticipate as much as possible scooter movements. Predictive modelling is certainly on the roadmap, but the first step is to collect more data, transform it and store it appropriately. This is where you come in: your task will be to collect data from external sources that can potentially help Gans predict e-scooter movement. Since data is needed every day, in real-time and accessible by everyone in the company, the challenge is going to be to assemble and automate a data pipeline in the cloud.
+---
+
+## ⚙️ **Installation**  
+
+### **Prerequisites**
+- Python 3.8 or higher
+- MySQL Database (with relevant schema and tables created)
+- Google Cloud SDK (if deploying on Google Cloud)
+- External API keys for Weather and Flight APIs
+
+### **Install Dependencies**  
+First, clone the repository:
+
+```bash
+git clone https://github.com/your-username/weather-flight-integration.git
+cd weather-flight-integration
+Install the required dependencies:
+
+pip install -r requirements.txt
+
+## **Setting Up Database**
+Ensure that your MySQL database has the following tables created:
+
+cities (for city data)
+weather (to store weather forecast data)
+flight (to store flight data)
+airport (to store airport data)
+Configure your MySQL connection in the connection() function with your MySQL credentials and database details.
+
+## 🚀 **Usage**
+
+Run the Cloud Function Locally
+Make sure you have Google Cloud SDK installed and initialized.
+Install functions-framework if you haven't already:
+pip install functions-framework
+Run the function locally:
+functions-framework --target=insert
+This will run the insert() function, which fetches weather data, flight data, and sends them to your database.
+API Configuration
+Weather API: Uses OpenWeatherMap to get forecast data for cities.
+Flight API: Uses Aerodatabox to get flight departure details for airports.
+Ensure you replace the API keys in the code with your own keys from OpenWeatherMap and Aerodatabox.
+
+🤝 Contributing
+
+We welcome contributions! To get started:
+
+Fork the repository:
+Click the "Fork" button at the top of this repository's page.
+Clone your fork:
+git clone https://github.com/your-username/weather-flight-integration.git
+cd weather-flight-integration
+Create a new branch:
+git checkout -b feature/new-feature
+Make your changes and commit:
+git commit -m "Add new feature"
+Push to the branch:
+git push origin feature/new-feature
+Submit a Pull Request:
+Open a pull request from your fork on GitHub and describe your changes.
+📜 License
+
+Distributed under the MIT License. See LICENSE for more information.
+
+📞 Contact
+
+Email: your-email@example.com
+GitHub: YourUsername
+🙌 Acknowledgments
+
+OpenWeatherMap API: For weather forecast data.
+Aerodatabox API: For flight data.
+Google Cloud Functions: For serverless execution of data processing.
+pandas: For data manipulation and storage.
+🔧 Project Structure
+
+Here's a brief overview of the file structure:
+
+weather-flight-integration/
+│
+├── requirements.txt       # Project dependencies
+├── main.py                # Main code for data retrieval and insertion
+├── LICENSE                # License file
+├── README.md              # Project documentation
+└── .gitignore             # Git ignore file
+The main function insert(request) is deployed as a Google Cloud Function, and it orchestrates fetching the data and inserting it into the MySQL database.
 
