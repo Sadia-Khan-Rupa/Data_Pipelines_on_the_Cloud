@@ -52,6 +52,7 @@ Ensure that your MySQL database has the following tables created:
 - flight (to store flight data)
 - airport (to store airport data)
 Configure your MySQL connection in the connection() function with your MySQL credentials and database details.
+![Database](database.webp)
 
 ## 🚀 **Usage**
 
