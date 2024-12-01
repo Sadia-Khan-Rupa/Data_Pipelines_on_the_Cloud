@@ -80,6 +80,9 @@ GitHub: Sadia-Khan-Rupa
 ## 🙌 **Acknowledgments**
 
 OpenWeatherMap API: For weather forecast data.
+
 Aerodatabox API: For flight data.
+
 Google Cloud Functions: For serverless execution of data processing.
+
 pandas: For data manipulation and storage.
